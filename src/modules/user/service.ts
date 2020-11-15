@@ -1,25 +1,26 @@
-import { Observable } from 'utils/Observable';
+// services
+import ApiService from 'modules/core/services/Api.service';
+import LoggerService from 'modules/core/services/Logger.service';
 // types
 import { User } from 'modules/user/types';
 
 class UserService {
-  readonly list = new Observable<User[]>([]);
-  readonly isLoading = new Observable<boolean>(false);
+  api: ApiService;
+
+  logger: LoggerService;
+
+  constructor(api: ApiService, logger: LoggerService) {
+    this.api = api;
+    this.logger = logger;
+  }
 
   loadUsers = async () => {
-    this.isLoading.set(true);
+    const users = await this.api.get<User[]>('users');
 
-    await new Promise((resolve) => {
-      setTimeout(() => resolve(), 1000);
-    });
-    const response = await fetch('http://localhost:8000/users');
-    const data = await response.json();
-
-    this.list.set(data);
-    this.isLoading.set(false);
+    return users;
   };
 }
 
-const userService = new UserService();
+const userService = new UserService(new ApiService(), new LoggerService());
 
 export default userService;

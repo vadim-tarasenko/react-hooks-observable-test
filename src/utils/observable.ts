@@ -13,14 +13,15 @@ export class Observable<T> {
   set(val: T) {
     if (this._val !== val) {
       this._val = val;
-      this._listeners.forEach(l => l(val));
+      this._listeners.forEach((l) => l(val));
     }
   }
 
   subscribe(listener: Listener<T>): Unsubscriber {
     this._listeners.push(listener);
+
     return () => {
-      this._listeners = this._listeners.filter(l => l !== listener);
+      this._listeners = this._listeners.filter((l) => l !== listener);
     };
   }
 }
