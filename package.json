@@ -12,9 +12,10 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3",
+    "react-scripts": "4.0.0",
     "rxjs": "^6.6.2",
-    "typescript": "~3.7.2"
+    "styled-components": "^5.2.1",
+    "typescript": "4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -38,6 +39,12 @@
     ]
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.4",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
+    "@typescript-eslint/parser": "^4.7.0",
+    "eslint": "^7.13.0",
+    "eslint-config-seedium": "^1.0.20",
+    "eslint-plugin-react": "^7.21.5",
     "prettier": "^2.1.2"
   }
 }
