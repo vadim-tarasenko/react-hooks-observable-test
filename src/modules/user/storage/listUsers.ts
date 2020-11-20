@@ -1,4 +1,4 @@
-import { Observable } from 'utils/observable';
+import { BehaviorSubject } from 'rxjs';
 // services
 import userService from 'modules/user/service';
 // types
@@ -6,30 +6,29 @@ import type { User } from 'modules/user/types';
 import type { StorageAction } from 'types';
 
 class ListUsers {
-  readonly data = new Observable<User[]>([]);
-
-  readonly isLoading = new Observable<boolean>(false);
+  readonly data = new BehaviorSubject<User[]>([]);
+  readonly isLoading = new BehaviorSubject<boolean>(false);
 
   loadUsersList: StorageAction = async () => {
-    this.isLoading.set(true);
+    this.isLoading.next(true);
 
     const list = await userService.loadUsers();
 
     if (list !== undefined) {
-      this.data.set(list);
+      this.data.next(list);
     }
 
-    this.isLoading.set(false);
+    this.isLoading.next(false);
   };
 
   addUser: StorageAction = async (user: User) => {
-    this.data.set([...this.data.get(), user]);
+    this.data.next([...this.data.value, user]);
   };
 
   removeUser: StorageAction = async (userId: string) => {
     // api request...
 
-    this.data.set(this.data.get().filter((user) => user.id !== userId));
+    this.data.next(this.data.value.filter((user) => user.id !== userId));
   };
 }
 
