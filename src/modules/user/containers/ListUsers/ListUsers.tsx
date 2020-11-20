@@ -6,14 +6,12 @@ import UserCard from 'modules/user/components/UserCard';
 import { useObservable } from 'modules/core/hooks/useObservable';
 // storage
 import usersListStorage from 'modules/user/storage/listUsers';
-// types
-import type { User } from 'modules/user/types';
 
 import { Root } from './ListUsers.styled';
 
 const ListUsers: FC = () => {
-  const users = useObservable<User[]>(usersListStorage.data);
-  const isLoading = useObservable<boolean>(usersListStorage.isLoading);
+  const users = useObservable(usersListStorage.data);
+  const isLoading = useObservable(usersListStorage.isLoading);
 
   useEffect(() => {
     usersListStorage.loadUsersList();

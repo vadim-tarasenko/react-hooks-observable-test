@@ -6,7 +6,6 @@ import { User } from 'modules/user/types';
 
 class UserService {
   api: ApiService;
-
   logger: LoggerService;
 
   constructor(api: ApiService, logger: LoggerService) {
