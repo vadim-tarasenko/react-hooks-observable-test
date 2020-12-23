@@ -1,6 +1,6 @@
 // services
-import ApiService from 'modules/core/services/Api.service';
-import LoggerService from 'modules/core/services/Logger.service';
+import ApiService from 'modules/core/services/api.service';
+import LoggerService from 'modules/core/services/logger.service';
 // types
 import { User } from 'modules/user/types';
 
