@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@abraham/reflection": "^0.7.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -13,8 +14,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "4.0.0",
+    "reflect-metadata": "^0.1.13",
     "rxjs": "^6.6.2",
     "styled-components": "^5.2.1",
+    "tsyringe": "^4.4.0",
     "typescript": "4.0.5"
   },
   "scripts": {
@@ -44,7 +47,7 @@
     "@typescript-eslint/parser": "^4.7.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-config-seedium": "^1.0.20",
+    "eslint-config-seedium": "^1.0.21",
     "eslint-plugin-react": "^7.21.5",
     "prettier": "^2.1.2"
   }

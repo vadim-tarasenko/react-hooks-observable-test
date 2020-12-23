@@ -1,16 +1,11 @@
 // services
 import ApiService from 'modules/core/services/Api.service';
-import LoggerService from 'modules/core/services/Logger.service';
 // types
-import { User } from 'modules/user/types';
+import type { User } from 'modules/user/types';
 
 class UserService {
-  api: ApiService;
-  logger: LoggerService;
-
-  constructor(api: ApiService, logger: LoggerService) {
+  constructor(private api: ApiService) {
     this.api = api;
-    this.logger = logger;
   }
 
   loadUsers = async () => {
@@ -20,6 +15,6 @@ class UserService {
   };
 }
 
-const userService = new UserService(new ApiService(), new LoggerService());
+const userService = new UserService(new ApiService());
 
 export default userService;
