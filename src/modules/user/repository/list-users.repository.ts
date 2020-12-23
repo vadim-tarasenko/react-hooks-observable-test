@@ -1,13 +1,23 @@
 import { BehaviorSubject } from 'rxjs';
 // services
-import userService from 'modules/user/service';
+import userService from 'modules/user/user.service';
 // types
 import type { User } from 'modules/user/types';
 import type { StorageAction } from 'types';
+// test
+import PersistRepository from 'services/repository/persist-repository';
 
-class ListUsers {
+class ListUsersRepository extends PersistRepository {
   readonly data = new BehaviorSubject<User[]>([]);
   readonly isLoading = new BehaviorSubject<boolean>(false);
+
+  constructor() {
+    super();
+
+    this.persist(this, {
+      blackList: ['isLoading'],
+    });
+  }
 
   loadUsersList: StorageAction = async () => {
     this.isLoading.next(true);
@@ -32,4 +42,4 @@ class ListUsers {
   };
 }
 
-export default new ListUsers();
+export default new ListUsersRepository();

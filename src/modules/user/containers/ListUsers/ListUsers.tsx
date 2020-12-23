@@ -5,7 +5,7 @@ import UserCard from 'modules/user/components/UserCard';
 // hooks
 import { useObservable } from 'modules/core/hooks/useObservable';
 // storage
-import usersListStorage from 'modules/user/storage/listUsers';
+import usersListStorage from 'modules/user/repository/list-users.repository';
 
 import { Root } from './ListUsers.styled';
 
