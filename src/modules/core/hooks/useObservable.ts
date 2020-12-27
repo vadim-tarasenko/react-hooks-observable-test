@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { BehaviorSubject } from 'rxjs';
 
-type DataType = object | string | number | undefined | null;
+type DataType = object | string | number | boolean | undefined | null;
 
 function useObservable<T, S>(
   subject: BehaviorSubject<T>,
@@ -28,7 +28,7 @@ function useObservable<T, S>(
     return () => {
       subscription.unsubscribe();
     };
-  }, [subject]);
+  }, [subject, updateValue]);
 
   return val;
 }
