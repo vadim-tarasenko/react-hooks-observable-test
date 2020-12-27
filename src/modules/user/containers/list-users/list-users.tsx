@@ -1,24 +1,24 @@
 import React, { FC, useCallback, useEffect } from 'react';
 // components
-import Spinner from 'modules/core/components/Spinner';
-import UserCard from 'modules/user/components/UserCard';
+import Spinner from 'modules/core/components/spinner';
+import UserCard from 'modules/user/components/user-card';
 // hooks
 import { useObservable } from 'modules/core/hooks/useObservable';
-// storage
-import usersListStorage from 'modules/user/repository/list-users.repository';
+// repository
+import usersListRepository from 'modules/user/repository/list-users.repository';
 
-import { Root } from './ListUsers.styled';
+import { Root } from './list-users.styled';
 
 const ListUsers: FC = () => {
-  const users = useObservable(usersListStorage.data);
-  const isLoading = useObservable(usersListStorage.isLoading);
+  const users = useObservable(usersListRepository.data);
+  const isLoading = useObservable(usersListRepository.isLoading);
 
   useEffect(() => {
-    usersListStorage.loadUsersList();
+    usersListRepository.loadUsersList();
   }, []);
 
   const handleUserRemove = useCallback((userId: string) => {
-    usersListStorage.removeUser(userId);
+    usersListRepository.removeUser(userId);
   }, []);
 
   return (

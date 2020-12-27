@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
-import { Props } from './UserCard.interface';
-import { Root, UserName, RemoveButton } from './UserCard.styled';
+import { Props } from './user-card.interface';
+import { Root, UserName, RemoveButton } from './user-card.styled';
 
 const UserCard: FC<Props> = ({ id, firstName, lastName, onRemoveClick }) => {
   const handleRemoveClick = () => {

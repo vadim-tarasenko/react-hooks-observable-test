@@ -2,7 +2,7 @@ import { BehaviorSubject } from 'rxjs';
 // services
 import userService from 'modules/user/user.service';
 // types
-import type { User } from 'modules/user/types';
+import type { User } from 'modules/user/user.types';
 import type { StorageAction } from 'types';
 // test
 import PersistRepository from 'services/repository/persist-repository';

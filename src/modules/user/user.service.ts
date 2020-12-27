@@ -2,7 +2,7 @@
 import ApiService from 'modules/core/services/api.service';
 import LoggerService from 'modules/core/services/logger.service';
 // types
-import { User } from 'modules/user/types';
+import { User } from 'modules/user/user.types';
 
 class UserService {
   api: ApiService;

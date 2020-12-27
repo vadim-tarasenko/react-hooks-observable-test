@@ -13,11 +13,11 @@ class PersistRepository {
     }
   };
 
-  public persist = <T extends object>(
+  protected persist = <T extends object>(
     context: T,
     config: {
-      blackList: string[];
-    }
+      blackList?: string[];
+    } = {}
   ) => {
     for (const key in context) {
       if (context.hasOwnProperty(key)) {
@@ -25,7 +25,7 @@ class PersistRepository {
 
         if (
           object instanceof BehaviorSubject &&
-          !config.blackList.includes(key)
+          !config.blackList?.includes(key)
         ) {
           const uniqKey = `${context.constructor.name}.${key}`;
           const persistedValue = this.getValue(uniqKey);
